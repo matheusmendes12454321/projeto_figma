@@ -1,3 +1,16 @@
+:root {
+    --background: #6e6e6e;
+    --text: #333333;
+    --primary: #f5982f;
+    --primary-dark: #a15600;
+    --primary-light: #fcc88c;
+    --white: #ffffff;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --text-light: #6b7280;
+    --success: #059669;
+    --danger: #dc2626;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;

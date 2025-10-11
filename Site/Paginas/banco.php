@@ -162,8 +162,9 @@ function logout(){
                       </div>
                       <h3>Saque</h3>
                   </div>
-                  <form action="operacoes.php" method="post">
+                  <form action="../Back-end/saque.php" method="post">
                       <input type="number" step="0.01" name="valor" placeholder="Valor" required>
+                      <input type="password" name="senha" id="" placeholder="Senha">
                       <input type="hidden" name="acao" value="saque">
                       <button type="submit" class="btn">Sacar</button>
                   </form>
@@ -174,22 +175,21 @@ function logout(){
                       <div class="card-icon">
                           <i class="fas fa-exchange-alt"></i>
                       </div>
-                      <h3>Transferência</h3>
+                      <h3>PIX</h3>
                   </div>
-                  <form action="operacoes.php" method="post">
-                      <label for="tipo_pix">Tipo de transferência:</label>
+                  <form action="../Back-end/pix.php" method="post">
+                      <label for="tipo_pix">Tipo de PIX:</label>
                       <select name="tipo_pix" id="tipo_pix" required>
                           <option value="" disabled selected>Selecione</option>
                           <option value="Email">Email</option>
                           <option value="CPF">CPF</option>
-                          <option value="Aleatorio">Aleatório</option>
+                          <option value="Telefone">Telefone</option>
                       </select>
 
-                      <input type="email" id="email" name="destinatario_email" placeholder="Email do destinatário">
-                      <input type="text" id="cpf" name="destinatario_cpf" placeholder="CPF do destinatário">
-                      <input type="text" id="aleatorio" name="destinatario_aleatorio" placeholder="Chave aleatória">
+                      <input type="text" id="chave" name="chave_destinatario" placeholder="Chave do destinatário">
 
                       <input type="number" step="0.01" name="valor" placeholder="Valor" required>
+                      <input type="password" name="senha" id="" placeholder="Senha">
                       <input type="hidden" name="acao" value="transferencia">
                       <button type="submit" class="btn">Transferir</button>
                   </form>
@@ -268,21 +268,9 @@ function logout(){
 const tipoPix = document.getElementById("tipo_pix");
 const inputEmail = document.getElementById("email");
 const inputCpf = document.getElementById("cpf");
-const inputAleatorio = document.getElementById("aleatorio");
+const inputTelefone = document.getElementById("telefone");
 const btnLogout = document.getElementById("btn-logout");
 
 
-tipoPix.addEventListener("change", function() {
-    inputEmail.style.display = "none";
-    inputCpf.style.display = "none";
-    inputAleatorio.style.display = "none";
 
-    if (this.value === "Email") {
-        inputEmail.style.display = "block";
-    } else if (this.value === "CPF") {
-        inputCpf.style.display = "block";
-    } else if (this.value === "Aleatorio") {
-        inputAleatorio.style.display = "block";
-    }
-});
 </script>
