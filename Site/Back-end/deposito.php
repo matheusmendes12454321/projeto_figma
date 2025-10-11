@@ -1,7 +1,7 @@
 <?php
 session_start();
 $usuario = $_SESSION['id_usuario'];
-$valor = $_POST['valor'];
+$valor = $_POST['valor']; 
 $senha = $_POST['senha'];
 
 $conexao = new mysqli('localhost', 'root', '', 'banco');
