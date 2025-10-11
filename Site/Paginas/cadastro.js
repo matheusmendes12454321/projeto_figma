@@ -10,6 +10,7 @@ document.getElementById("usuario_telefone").addEventListener('keydown', function
     }
 })
 
+
 function abrirbiometria() {
 let div = document.querySelector(".biometria-oculta");
 if (div) {

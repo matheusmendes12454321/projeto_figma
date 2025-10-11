@@ -7,7 +7,7 @@ const btnLogout = document.getElementById("btn-logout");
 btnLogout.addEventListener('click', () => {
     document.getElementById("comandos").innerHTML = "<?php logout(); ?>"
 })
-alert("j")
+
 tipoPix.addEventListener("change", function() {
     inputEmail.style.display = "none";
     inputCpf.style.display = "none";

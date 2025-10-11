@@ -60,7 +60,7 @@ function logout(){
     <div class="container">
       <div class="header-content">
           <div class="user-info">
-              <h1>Olá, Maria Silva!</h1>
+              <h1>Olá, <?php echo $nome; ?>!</h1>
               <div class="account-info">
                   <div class="account-item">
                       <span class="account-label">Agência</span>

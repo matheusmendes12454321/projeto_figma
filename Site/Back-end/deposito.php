@@ -4,6 +4,7 @@ $usuario = $_SESSION['id_usuario'];
 $valor = $_POST['valor']; 
 $senha = $_POST['senha'];
 
+
 $conexao = new mysqli('localhost', 'root', '', 'banco');
 if($conexao -> connect_error){
     die($conexao -> connect_error);

@@ -49,6 +49,7 @@ function dados($conexao){
     return true;
 }
 
+
 function endereco($conexao){
     $id_usuario = $_SESSION['id_usuario'];
     $rua = $_POST['rua'];

@@ -1,6 +1,7 @@
 <?php
 session_start();
 entrar();
+
 function entrar(){
     $cpf = $_POST['cpf_login'];
     $email = $_POST['email_login'];
