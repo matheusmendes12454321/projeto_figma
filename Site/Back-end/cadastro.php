@@ -96,6 +96,7 @@ function conta($conexao){
     if(!$sucesso){
         return false;
     }
+    $_SESSION['id_conta'] = mysqli_fetch_row($sucesso)[0];
     return true;
 }
 

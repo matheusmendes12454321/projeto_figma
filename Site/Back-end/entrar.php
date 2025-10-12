@@ -19,6 +19,12 @@ function entrar(){
     }
 
     $_SESSION['id_usuario'] = mysqli_fetch_row($pesquisa)[0];
+    $id = $_SESSION['id_usuario'];
+
+    $busca_conta = mysqli_query($conexao, "SELECT id from contas where id_usuario='$id'");
+    $_SESSION['id_conta'] = mysqli_fetch_row($busca_conta)[0];
+
+    
 
     mysqli_close($conexao);
 

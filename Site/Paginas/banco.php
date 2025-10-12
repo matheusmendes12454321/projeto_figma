@@ -1,5 +1,6 @@
 <?php
 session_start();
+include '../Back-end/transacoes.php';
 
 if(!isset($_SESSION["id_usuario"])) {
   //header("Location: ./cadastro.html");
@@ -13,6 +14,8 @@ if ($conexao->connect_error) {
 }
 
 $id = $_SESSION["id_usuario"];
+$id_conta = $_SESSION['id_conta'];
+
 $busca = mysqli_query($conexao, "SELECT * FROM usuarios JOIN contas ON contas.id_usuario = usuarios.id JOIN enderecos ON enderecos.id_usuario = usuarios.id WHERE usuarios.id='$id'");
 
 if(mysqli_num_rows($busca) == 0){
@@ -199,58 +202,8 @@ function logout(){
 
       <section class="transactions">
           <h2 class="section-title">Últimas Transações</h2>
-          <div class="transaction-list">
-              <div class="transaction-item">
-                  <div class="transaction-info">
-                      <div class="transaction-icon">
-                          <i class="fas fa-arrow-down"></i>
-                      </div>
-                      <div class="transaction-details">
-                          <div class="transaction-title">Depósito Recebido</div>
-                          <div class="transaction-date">15/05/2023 - 10:30</div>
-                      </div>
-                  </div>
-                  <div class="transaction-amount positive">-</div>
-              </div>
-              
-              <div class="transaction-item">
-                  <div class="transaction-info">
-                      <div class="transaction-icon">
-                          <i class="fas fa-shopping-cart"></i>
-                      </div>
-                      <div class="transaction-details">
-                          <div class="transaction-title">Supermercado</div>
-                          <div class="transaction-date">14/05/2023 - 16:45</div>
-                      </div>
-                  </div>
-                  <div class="transaction-amount negative">-</div>
-              </div>
-              
-              <div class="transaction-item">
-                  <div class="transaction-info">
-                      <div class="transaction-icon">
-                          <i class="fas fa-exchange-alt"></i>
-                      </div>
-                      <div class="transaction-details">
-                          <div class="transaction-title">Transferência Enviada</div>
-                          <div class="transaction-date">13/05/2023 - 09:15</div>
-                      </div>
-                  </div>
-                  <div class="transaction-amount negative">-</div>
-              </div>
-              
-              <div class="transaction-item">
-                  <div class="transaction-info">
-                      <div class="transaction-icon">
-                          <i class="fas fa-arrow-up"></i>
-                      </div>
-                      <div class="transaction-details">
-                          <div class="transaction-title">Saque</div>
-                          <div class="transaction-date">12/05/2023 - 14:20</div>
-                      </div>
-                  </div>
-                  <div class="transaction-amount negative">-</div>
-              </div>
+          <div class="transaction-list" id="transacoes">
+                     
           </div>
       </section>
   </div>
@@ -271,6 +224,26 @@ const inputCpf = document.getElementById("cpf");
 const inputTelefone = document.getElementById("telefone");
 const btnLogout = document.getElementById("btn-logout");
 
+function criar(tipo, data, valor){
+    const div = document.createElement('div');
+    div.className = 'transaction-item';
+    div.innerHTML = `
+        <div class='transaction-info'>
+            <div class='transaction-icon'>
+                <i class='fas fa-exchange-alt'></i>
+            </div>
+            <div class='transaction-details'>
+                <div class='transaction-title'>${tipo}</div>
+                <div class='transaction-date'>${data}</div>
+            </div>
+        </div>
+        <div class='transaction-amount ${tipo}'>${valor}</div>
+    `;
+    document.getElementById('transacoes').appendChild(div)
+}
 
 
 </script>
+<?php 
+buscarTransacoes($id_conta);
+?>
