@@ -21,7 +21,7 @@ if (div) {
 function verificar(n){
     let fieldsetsVisiveis = document.querySelectorAll('fieldset');
     let v = false;
-    /* ATIVAR DEPOIS, DESATIVADO PARA TESTES
+
     let inputs = fieldsetsVisiveis[n].querySelectorAll('input');
     for(let i = 0; i < inputs.length; i++){
         if(inputs[i].value == "" && inputs[i].type != "button"){
@@ -34,7 +34,7 @@ function verificar(n){
         alert("Preencha todos os campos visíveis");
         return false;
     }
-    */
+    
 
     return true;
 }
@@ -48,6 +48,10 @@ function proximo(n){
     if(n == 0){
         if(document.getElementById('senha').value != document.getElementById('confirmar_senha').value){
             alert("As senhas não são iguais");
+            return;
+        }
+        if(String(document.getElementById("usuario_email").value).indexOf("@") == -1){
+            alert("Verifique se o email digitado está correto")
             return;
         }
 
