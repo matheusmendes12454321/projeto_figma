@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+:root {
+    --orange: #ff7a00;
+    --orange-light: #ffa24c;
+    --background: #fff5eb;
+    --dark: #333;
+    --white: #ffffff;
+    --gray: #666;
+    --gray-light: #ddd;
+}
+
+body {
+    background: var(--background);
+    color: var(--dark);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Botão Voltar */
+a {
+    display: inline-block;
+    color: var(--orange);
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    border: 2px solid var(--orange);
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+}
+
+a:hover {
+    background: var(--orange);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 122, 0, 0.3);
+}
+
+/* Container do formulário */
+form {
+    width: 100%;
+    max-width: 450px;
+}
+
+fieldset {
+    border: none;
+    background: var(--white);
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+fieldset:hover {
+    transform: translateY(-5px);
+}
+
+/* Legend/Título */
+legend {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--orange);
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 0 20px;
+    width: 100%;
+}
+
+/* Labels e inputs */
+label {
+    display: block;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 15px;
+    margin-top: 8px;
+    border: 2px solid var(--gray-light);
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: #fafafa;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: var(--orange);
+    background: var(--white);
+    box-shadow: 0 0 0 3px rgba(255, 122, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Botão Entrar */
+button {
+    width: 100%;
+    padding: 16px;
+    background: var(--orange);
+    color: var(--white);
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+button:hover {
+    background: var(--orange-light);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 122, 0, 0.3);
+}
+
+button:active {
+    transform: translateY(-1px);
+}
+
+a:focus,
+button:focus,
+input:focus {
+    outline: 2px solid var(--orange);
+    outline-offset: 2px;
+}
+
+form {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+header {
+    background: var(--orange);
+    padding: 20px;
+    text-align: center;
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+

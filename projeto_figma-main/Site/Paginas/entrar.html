@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar - Banco Xonas</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        :root {
+            --orange: #ff7a00;
+            --orange-light: #ffa24c;
+            --orange-dark: #e06a00;
+            --background: #fff5eb;
+            --white: #ffffff;
+            --dark: #333;
+            --gray: #666;
+            --gray-light: #ddd;
+            --error: #e74c3c;
+            --success: #2ecc71;
+        }
+
+        body {
+            background: var(--background);
+            color: var(--dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--orange), var(--orange-light));
+            padding: 20px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        .login-card {
+            width: 100%;
+            max-width: 480px;
+            background: var(--white);
+            padding: 40px 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .login-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .login-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--orange);
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .login-subtitle {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--gray);
+            font-size: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--gray-light);
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--orange);
+            background: var(--white);
+            box-shadow: 0 0 0 3px rgba(255, 122, 0, 0.1);
+        }
+
+        .form-input.error {
+            border-color: var(--error);
+        }
+
+        .error-message {
+            color: var(--error);
+            font-size: 0.85rem;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--orange);
+            color: var(--white);
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .btn-primary:hover {
+            background: var(--orange-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 122, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--orange);
+            border: 2px solid var(--orange);
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        .btn-secondary:hover {
+            background: var(--orange);
+            color: var(--white);
+        }
+
+        .links {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .link {
+            color: var(--orange);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .link:hover {
+            color: var(--orange-dark);
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: var(--dark);
+            color: var(--white);
+            font-size: 0.9rem;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Banco Xonas</div>
+    </header>
+    
+    <div class="container">
+        <div class="login-card">
+            <h1 class="login-title">Entrar</h1>
+            <p class="login-subtitle">Acesse sua conta para gerenciar suas finanças</p>
+            
+            <form action="../Back-end/entrar.php" method="post" id="loginForm">
+                <div class="form-group">
+                    <label for="cpf_login" class="form-label">CPF</label>
+                    <input type="text" name="cpf_login" id="cpf_login" class="form-input" placeholder="Digite seu CPF" required>
+                    <div class="error-message" id="cpfError">Por favor, insira um CPF válido</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email_login" class="form-label">E-mail</label>
+                    <input type="email" name="email_login" id="email_login" class="form-input" placeholder="Digite seu e-mail" required>
+                    <div class="error-message" id="emailError">Por favor, insira um e-mail válido</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="senha_login" class="form-label">Senha</label>
+                    <input type="password" name="senha_login" id="senha_login" class="form-input" placeholder="Digite sua senha" required>
+                    <div class="error-message" id="senhaError">A senha deve ter pelo menos 6 caracteres</div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" id="entrar">Entrar</button>
+                
+                <a href="./index.html" class="btn btn-secondary">Voltar</a>
+            </form>
+            
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 Banco Xonas. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            let isValid = true;
+            
+            const cpf = document.getElementById('cpf_login').value.replace(/\D/g, '');
+            if (cpf.length !== 11) {
+                document.getElementById('cpf_login').classList.add('error');
+                document.getElementById('cpfError').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('cpf_login').classList.remove('error');
+                document.getElementById('cpfError').style.display = 'none';
+            }
+            
+            const email = document.getElementById('email_login').value;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                document.getElementById('email_login').classList.add('error');
+                document.getElementById('emailError').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('email_login').classList.remove('error');
+                document.getElementById('emailError').style.display = 'none';
+            }
+            
+            const senha = document.getElementById('senha_login').value;
+            if (senha.length < 6) {
+                document.getElementById('senha_login').classList.add('error');
+                document.getElementById('senhaError').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('senha_login').classList.remove('error');
+                document.getElementById('senhaError').style.display = 'none';
+            }
+            
+            if (!isValid) {
+                e.preventDefault();
+            }
+        });
+        
+    </script>
+</body>
+</html>
